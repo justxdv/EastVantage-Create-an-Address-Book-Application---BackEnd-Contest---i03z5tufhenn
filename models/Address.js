@@ -18,7 +18,28 @@ Here's a sample object for this schema:
 */
 const addressSchema = new mongoose.Schema({
     //Write your code here
+  name: {
+        type: String,
+        required: true
+    },
+    address: {
+        type: String,
+        required: true
+    },
+    location: {
+        type: {
+            type: String,
+            enum: ['Point'], 
+            required: true
+        },
+        coordinates: {
+            type: [Number],
+            required: true
+        }
+    }
 });
+
+addressSchema.index({ location: '2dsphere' });
 
 const Address = mongoose.model('Address', addressSchema);
 
