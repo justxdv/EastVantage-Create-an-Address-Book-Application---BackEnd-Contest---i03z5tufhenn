@@ -210,7 +210,7 @@ getAddressesWithinDistance = async (req, res, next) => {
   const { latitude, longitude, distance } = req.query;
 
     if (!latitude || !longitude || !distance) {
-        return res.status(400).json({ message: 'Please provide latitude, longitude and distance' });
+        return res.status(400).json({ message: 'Please provide all required information' });
     }
 
     try {
